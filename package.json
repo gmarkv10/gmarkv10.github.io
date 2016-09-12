@@ -1,0 +1,23 @@
+{
+  "name": "gmarkv10.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "semantic-ui": "^2.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmarkv10/gmarkv10.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmarkv10/gmarkv10.github.io/issues"
+  },
+  "homepage": "https://github.com/gmarkv10/gmarkv10.github.io#readme"
+}
