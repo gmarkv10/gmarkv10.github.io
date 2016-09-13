@@ -7,14 +7,81 @@
 	<script src="semantic/dist/semantic.min.js"></script>
   </head>
   <body>
-	  <div class="ui inverted center aligned segment">
-		  <div class="ui container">
-			  <h1 class="ui header" style="color:white;">RFP Email Template Docs</h1>
-			  <div class="ui text container">
-				  Request For Promotion (RFP) has a notification system so that accounts that are involved in a promotional Campaign can be notified via email at various times throughout the Campaign lifecycle. Each one of these events has its own Email Template (the one pictured below is for the creation of a Campaign) but hooks for notifications exist for events like a Campaign’s Promotion form being approved by a Supplier, a Campaign transitioning from active state to being stopped, when a user resets their password, etc
-			  </div>
-		  </div>            
+	  <div class="ui inverted center aligned vertical segment">
+		  <div class="ui text inverted container top segment attached">
+			  <h1 class="ui header">RFP Email Template Docs</h1>
+			  
+		  </div>
+		  <div class="ui text container segment attached">		  
+				Request For Promotion (RFP) has a notification system so that accounts that are involved in a promotional Campaign can be notified via email at various times throughout the Campaign lifecycle. Each one of these events has its own Email Template (the one pictured below is for the creation of a Campaign) but hooks for notifications exist for events like a Campaign’s Promotion form being approved by a Supplier, a Campaign transitioning from active state to being stopped, when a user resets their password, etc.			  
+		  </div>
+		  <div class="ui text container segment attached">
+			  <img src="pics/editingtemplate.png" class="ui big centered image">
+			  As an Administrator you have the option to customize the content of the emails for each event from the Admin page when you select Email Templates from the subheading options. To keep RFP as flexible as possible, the use of ‘Handlebars’, or a templating language that allows you to use a variable name inside special characters (which look like {{…}}) so that when the text is formatted, the text that that variable signifies is used in place of its name. For instance, in the picture above, we use the Handlebars macro to insert text that is pointed to by a variable called campaignName. RFP is implemented in such a way that for the Campaign Created template, campaignName will point to text with your new Campaign’s name. The purpose of this documentation is to describe what variable names can be used in what templates and to what effect.
+		  </div>		  
 	  </div>
+
+	  <div class="ui vertical center aligned segment" style="padding: 4em 0;">
+		  <h1 class="ui header">How to Use Handlebars</h1><!-- header -->
+		  <div class="ui text container">
+		  Handlebars allows you to put an expression in between two curly brackets known as ‘mustaches’. In RFP, the use of theses ‘mustaches’ will almost* always follow this formula:
+		  </div>
+		  <h2 class="ui header">{{  aVariableName }}</h2>
+		  <h4 class="ui header">(Open mustache + variable name + close mustache)</h4>
+	  </div>
+
+	  <div class="ui vertical secondary segment" style="padding: 4em 0;">
+		  <h2 class="ui center aligned header">Handlebars in Email Subject Fields</h2>
+		  <div class="ui text container">
+			  Every time you want to use Handlebars templating in an email body you will use the double curly brace ‘mustache’ notation. Unfortunately, there is an exception to that rule when using a Handlebars variable in an email subject where you must use three curly braces to invoke the contents of a variable (due to the way emails themselves are formatted).
+
+			  As a clarifying example we’ll say a campaign is being created with the name ‘Q1 Campaign’. This means in the Campaign Create template, a variable campaignName points to the text ‘Q1 Campaign’.
+		  </div>
+		  <div class="ui two column divided grid container" style="padding: 2em 0;"">
+			  <div class="row">
+				  <div class="nine wide column">
+					  <img src="pics/subjecttemplate.png" class="ui big centered image">
+				  </div>
+				  <div class="six wide column">
+					  <p>Whereas in the body of an email you could use the Handlebars to send “blah blah Q1 campaign blah” by typing:</p> 
+					  
+					  <strong>“blah blah {{campaignName}} blah”</strong><br><br><br>
+					  
+					  <p>In the subject of the email you would have to instead type (notice the 3 curly brace notation):</p>
+					  
+					  <strong>“blah blah {{{campaignName}}} blah”</strong>
+				  </div>
+
+			  </div>
+		  </div>
+	  </div>
+
+	  </div>
+		  <div class="ui stackable grid container">
+			  
+			  <div class="row">
+			  	
+			  </div>
+			  <div class="row">
+				  <div class=""></div> <!-- 9 wide col with picture -->
+				  <div class=""></div> <!-- 6 wide col with ex text -->
+			  </div>
+		  </div>
+	  
   </body>
 </html>
 
+<!--
+
+
+
+  <div class="row">
+				 		
+				
+				<h5 class="ui center aligned header">(Open mustache + variable name + close mustache)</h5 				
+	  
+			  </div><!-- Parag with block of text
+			  <div class="row">
+			  	<h3 class="ui center aligned header">{{  aVariableName }}</h3>
+			  </div>
+-->
