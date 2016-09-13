@@ -32,6 +32,7 @@
 
 	  <div class="ui vertical secondary segment" style="padding: 4em 0;">
 		  <h2 class="ui center aligned header">Handlebars in Email Subject Fields</h2>
+		  <h4 class="ui center aligned header">An Example using {{campaignName}}</h4>
 		  <div class="ui text container">
 			  Every time you want to use Handlebars templating in an email body you will use the double curly brace ‘mustache’ notation. Unfortunately, there is an exception to that rule when using a Handlebars variable in an email subject where you must use three curly braces to invoke the contents of a variable (due to the way emails themselves are formatted).
 
@@ -42,7 +43,7 @@
 				  <div class="nine wide column">
 					  <img src="pics/subjecttemplate.png" class="ui big centered image">
 				  </div>
-				  <div class="six wide column">
+				  <div class="seven wide column">
 					  <p>Whereas in the body of an email you could use the Handlebars to send “blah blah Q1 campaign blah” by typing:</p> 
 					  
 					  <strong>“blah blah {{campaignName}} blah”</strong><br><br><br>
@@ -56,17 +57,101 @@
 		  </div>
 	  </div>
 
-	  </div>
-		  <div class="ui stackable grid container">
-			  
-			  <div class="row">
-			  	
-			  </div>
-			  <div class="row">
-				  <div class=""></div> <!-- 9 wide col with picture -->
-				  <div class=""></div> <!-- 6 wide col with ex text -->
-			  </div>
+	  <div class="ui vertical segment" style="padding: 4em 0;">
+		  <h1 class="ui center aligned header">Variables By Template</h1>
+		  <div class="ui container">
+			<div class="ui middle aligned divided list">
+				<div class="item">
+					<div class="header">Campaign Created</div>
+					{{campaignName}} – Name of campaign (see example in How to Use Handlebars)
+				</div>
+				<div class="item">
+					<div class="header">Password Reset</div>
+					{{resetKey}} – The Reset Key is a long string of random characters that can uniquely identify the user’s request for a password reset. For the purposes of sending an email in response to the action, the unique identifier is put in the link a user follows to complete their password reset. The RFP website’s address followed by /reset?key={{resetKey}} must be somewhere in this Email Template in order for the user to be able to complete their password reset.   (e.g. https://rfp.ao/reset?key={{resetKey}}, this allows the key to be sent as part of the request). It is advised you do not put the Reset Key in the Subject.
+				</div>
+				<div class="item">
+					<div class="header">Campaign Modification (to PT Team)</div>
+					<div class="ui grid">
+						<div class="eight wide column">
+							{{campaignName}} – Name of campaign (see example in How to Use Handlebars)
+						</div>
+						<div class="eight wide column">
+							{{campaignStatus}} – Status of campaign could be any of the following:
+							<div class="ui list">
+								<div class="item">Distributed to Suppliers</div>
+								<div class="item">Withdrawn</div>
+								<div class="item">Appproved</div>
+								<div class="item">Declined</div>
+								<div class="item">Started</div>
+								<div class="item">Stopped</div>
+								<div class="item">Ended</div>
+								<div class="item">Reopened</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="item">
+					<div class="header">Campaign Comment</div>
+					<div class="ui list">
+						<div class="item">{{campaignName}} - Name of campaign (see example in How to Use Handlebars)</div>
+						<div class="item">{{userFullName}} – The first and last name of the user who left the comment</div>
+						<div class="item">{{comment}} – The content the user left as a comment on the campaign</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="header">Campaign Modification (to Suppliers)</div>
+					<div class="ui grid">
+						<div class="eight wide column">
+							{{campaignName}} – Name of campaign (see example in How to Use Handlebars)
+						</div>
+						<div class="eight wide column">
+							{{campaignStatus}} – Status of campaign could be any of the following:
+							<div class="ui list">
+								<div class="item">Distributed (transitioned to Request State)</div>
+								<div class="item">Withdrawn</div>								
+								<div class="item">Declined</div>																														
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="item">
+					<div class="header">Campaign Viewed By Supplier (for first time)</div>
+					<div class="ui list">
+						<div class="item">{{campaignName}} - Name of campaign (see example in How to Use Handlebars)</div>
+						<div class="item">{{supplierName}} – Name of supplier who just viewed their campaign</div>						
+					</div>
+				</div>
+				<div class="item">
+					<div class="header">Approved Supplier Campaign Stopped</div>
+					<div class="ui list">
+						<div class="item">{{campaignName}} - Name of campaign (see example in How to Use Handlebars)</div>
+						<div class="item">{{campaignStatus}} – Status of campaign (*always Stopped in this template)</div>						
+					</div>					
+				</div>
+				<div class="item">
+					<div class="header">Supplier Proposal Status Change</div>
+					<div class="ui grid">
+						<div class="eight wide column">
+							{{campaignName}} – Name of campaign (see example in How to Use Handlebars)
+						</div>
+						<div class="eight wide column">
+							{{prosalStatus}} - What the Supplier decided to do with the Proposal
+							<div class="ui list">
+								<div class="item">Editted (editted but not committed to a new status)</div>															
+								<div class="item">Approved/Declined (Supplier committed to a decision on the Proposal)</div>																														
+							</div>
+						</div>
+					</div>
+				</div>			  
+			</div>
 		  </div>
+
+	  </div>
+
+	  
+		  
 	  
   </body>
 </html>
