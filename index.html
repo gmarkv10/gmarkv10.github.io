@@ -7,7 +7,7 @@
 	<script src="semantic/dist/semantic.min.js"></script>
   </head>
   <body>
-	  <div class="ui inverted center aligned vertical segment">
+	  <div class="ui inverted vertical segment">
 		  <div class="ui text inverted container top segment attached">
 			  <h1 class="ui header">RFP Email Template Docs</h1>
 			  
@@ -15,8 +15,10 @@
 		  <div class="ui text container segment attached">		  
 				Request For Promotion (RFP) has a notification system so that accounts that are involved in a promotional Campaign can be notified via email at various times throughout the Campaign lifecycle. Each one of these events has its own Email Template (the one pictured below is for the creation of a Campaign) but hooks for notifications exist for events like a Campaign’s Promotion form being approved by a Supplier, a Campaign transitioning from active state to being stopped, when a user resets their password, etc.			  
 		  </div>
+		  <div class="ui text container center aligned  segment attached">
+			  <img src="pics/editingtemplate.png" class="ui big centered image">			  
+		  </div>
 		  <div class="ui text container segment attached">
-			  <img src="pics/editingtemplate.png" class="ui big centered image">
 			  As an Administrator you have the option to customize the content of the emails for each event from the Admin page when you select Email Templates from the subheading options. To keep RFP as flexible as possible, the use of ‘Handlebars’, or a templating language that allows you to use a variable name inside special characters (which look like {{…}}) so that when the text is formatted, the text that that variable signifies is used in place of its name. For instance, in the picture above, we use the Handlebars macro to insert text that is pointed to by a variable called campaignName. RFP is implemented in such a way that for the Campaign Created template, campaignName will point to text with your new Campaign’s name. The purpose of this documentation is to describe what variable names can be used in what templates and to what effect.
 		  </div>		  
 	  </div>
